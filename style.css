@@ -1,0 +1,78 @@
+@font-face {
+    font-family: HelveticaNue;
+    src: url("fonts/HelveticaNeue-Thin.otf") format("opentype");
+}
+@font-face {
+    font-family: Roboto;
+    font-weight: Light;
+    src: url("fonts/Roboto-Light.ttf")
+}
+
+.bkg{
+    margin: 0px;
+    background-color: #2E3440;
+    background-attachment: fixed;
+}
+
+/* DIVS */
+#container-r{
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+    border-radius: 1em;
+    
+    margin: auto;
+    background: #3B4252;
+    width: 90%;
+    height: 65%;
+    overflow: hidden;
+}
+
+/* TEXT */
+h1 {
+    display: inline-block;
+    width:50%;
+    font-family: "HelveticaNue";
+    font-size: 2em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    text-align: left;
+    
+    margin-left: 3%;
+    margin-right: 5%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    background: -webkit-linear-gradient(45deg,#88C0D0, #A3BE8C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2{
+    font-family: "Roboto";
+    font-size: 1em;
+    text-align: left;
+    font-weight: light;
+
+    color: #D8DEE9;
+
+    line-height: 100%;
+}
+
+#text{
+    font-family: "Roboto";
+    font-size: 1em;
+    text-align: left;
+    margin: .5em;
+    padding: 0px;
+
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
+    color: #ECEFF4;
+    list-style-type: none;
+}

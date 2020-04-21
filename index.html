@@ -1,10 +1,12 @@
 <html>
   <head>
-    <title>Noom (patent pending)</title>
+      <title>gabeFrahm.dev</title>
+      <meta charset = 'utf-8'>
+      <link rel='stylesheet' href='style.css'>
   </head>
-  
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <script src='/socket.io/socket.io.js'></script>
+  <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
   <script>
     $(function () {
       let socket = io();
@@ -21,11 +23,18 @@
     });
   </script>
 
-  <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" />
+<body class='bkg'>
+
+  <h1>gabeFrahm.dev | Chat</h1>
+  
+
+  <div id='container-r'>
+    <ul id='messages'>This is a test message</ul>
+  </div>
+    <form action=''>
+      <input id='m' autocomplete='off' />
       <button>Send</button>
     </form>
-  </body>
+<br>
+</body>
 </html>

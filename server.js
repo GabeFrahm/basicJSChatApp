@@ -1,12 +1,21 @@
 // Modules
-let app = require('express')();
+const express = require('express');
+const app = express();
 let http = require('http').createServer(app);
 let io = require('socket.io')(http);
 
+app.use(express.static(__dirname));
+
 // Feed the client index.html
+/*app.get('/style.css', (req,res) => {
+  res.sendFile(__dirname + '/style.css');
+});
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
+*/
+
 
 // Listen to the port
 http.listen(3000, () => {
