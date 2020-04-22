@@ -15,7 +15,7 @@
 }
 
 /* DIVS */
-#container-r{
+#container-messages {
     padding-left: 2.5%;
     padding-right: 2.5%;
     padding-top: 2%;
@@ -23,11 +23,32 @@
 
     border-radius: 1em;
     
-    margin: auto;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 1.25%;
     background: #3B4252;
     width: 90%;
-    height: 65%;
+    height: 55%;
     overflow: hidden;
+}
+
+#container-input {
+ height: 15%;
+ width: 60%;
+
+ margin-left: 2.5%;
+ margin-right: 2.5%;
+ padding-left: 2.5%;
+ padding-right: 2.5%;
+ 
+ border-radius: 1em;
+
+ float: left;
+ background: #3B4252;
+}
+
+#input {
+
 }
 
 /* TEXT */
@@ -61,12 +82,13 @@ h2{
     line-height: 100%;
 }
 
-#text{
+#messages{
     font-family: "Roboto";
     font-size: 1em;
     text-align: left;
-    margin: .5em;
+    line-height: 150%;
     padding: 0px;
+    margin: 0px;
 
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */

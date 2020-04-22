@@ -6,16 +6,9 @@ let io = require('socket.io')(http);
 
 app.use(express.static(__dirname));
 
-// Feed the client index.html
-/*app.get('/style.css', (req,res) => {
-  res.sendFile(__dirname + '/style.css');
-});
-
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
-*/
-
 
 // Listen to the port
 http.listen(3000, () => {
@@ -27,8 +20,8 @@ io.on('connection', (socket) => {
   console.log('User connected');
 
   // On Message
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+  socket.on('chat message', (usr, msg) => {
+    io.emit('chat message', usr, msg);
   });
 
   // On Disconnect
