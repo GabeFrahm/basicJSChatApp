@@ -8,8 +8,6 @@
   <script src='/socket.io/socket.io.js'></script>
   <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
   <script>
-    let user = prompt('Enter Username:')
-    if (user == null || user == '') user = 'New User'
     $(function () {
       let socket = io();
       $('form').submit(function(e) {
@@ -21,17 +19,24 @@
       socket.on('chat message', function(usr, msg) {
         $('#messages').append($('<li>').text(usr + ': ' + msg));
         //console.log(`Recieved Message: ${msg}`)
-      })
+      });
+      socket.on('past messages', function(msgs) {
+        console.log('recieved!')
+        for (i = 0; i < msgs.length; i++) {
+          console.log('firing')
+          $('#messages').append($('<li>').text(msgs[i][0] + ': ' + msgs[i][1]));
+        };
+      });
+      let user = prompt('Enter Username:');
+      if (user == null || user == '') user = 'New User';
     });
   </script>
 
 <body class='bkg'>
 
   <h1>gabeFrahm.dev | Chat</h1>
-  
-
-  <div id='container-messages'>
-    <ul id='messages'>This is a test message</ul>
+  <div id='container-messages'> 
+    <ul id='messages'></ul> 
   </div>
 
   <div id='container-input'>
