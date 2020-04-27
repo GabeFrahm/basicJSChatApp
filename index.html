@@ -16,10 +16,10 @@
         $('#input').val('');
         return false;
       });
-      socket.on('chat message', function(usr, msg) {
+      socket.on('chat message', (usr, msg) => {
         $('#messages').append($('<li>').text(usr + ': ' + msg));
       });
-      socket.on('past messages', function(msgs) {
+      socket.on('past messages', msgs => {
         console.log('recieved!')
         for (i = 0; i < msgs.length; i++) {
           console.log('firing')

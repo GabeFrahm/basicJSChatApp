@@ -24,9 +24,11 @@ io.on('connection', socket => {
   });
 
   // Sending past messages
-  // TODO: If list is longer than x items, send only the last couple
-  console.log(socket.id);
-  io.to(socket.id).emit('past messages', msgs);
+  // If msgs > 50 items, send only last 50
+  if (msgs.length > 50) {
+    io.to(socket.id).emit('past messages', arr.slice(msgs.length - 50, msgs.length))
+  } 
+  else {io.to(socket.id).emit('past messages', msgs)};
 
   // On Message
   socket.on('chat message', msg => {
