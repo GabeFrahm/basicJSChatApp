@@ -12,17 +12,18 @@
       let socket = io();
       $('form').submit(function(e) {
         e.preventDefault(); // prevent page reloading
-        socket.emit('chat message', $('#input').val());
+        socket.emit('msg-c', $('#input').val());
         $('#input').val('');
         return false;
       });
-      socket.on('chat message', (usr, msg) => {
+      socket.on('msg-c', (usr, msg) => {
         $('#messages').append($('<li>').text(usr + ': ' + msg));
       });
-      socket.on('past messages', msgs => {
-        console.log('recieved!')
+      socket.on('msg-a', msg => {
+        $('#messages').append($('<li id="alert">').text(msg));
+      });
+      socket.on('msg-p', msgs => {
         for (i = 0; i < msgs.length; i++) {
-          console.log('firing')
           $('#messages').append($('<li>').text(msgs[i][0] + ': ' + msgs[i][1]));
         };
       });
@@ -36,6 +37,8 @@
 <body class='bkg'>
 
   <h1>gabeFrahm.dev | Chat</h1>
+
+  <!-- TODO: Make Scrollable -->
   <div id='container-messages'> 
     <ul id='messages'></ul> 
   </div>

@@ -59,16 +59,6 @@
   border-radius: 1em;
   background: #4C566A;
   color: #ECEFF4;
-
-  /* Vertical Centering */
-  /*
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  */
-
 }
 
 form {
@@ -98,7 +88,7 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
-h2{
+h2 {
   font-family: "Roboto";
   font-size: 1em;
   text-align: left;
@@ -109,7 +99,7 @@ h2{
   line-height: 100%;
 }
 
-#messages{
+#messages {
   font-family: "Roboto";
   font-size: 1em;
   text-align: left;
@@ -124,4 +114,10 @@ h2{
 
   color: #ECEFF4;
   list-style-type: none;
+}
+
+#alert {
+  @extend #messages;
+
+  color: #D8DEE9;
 }

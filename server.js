@@ -13,28 +13,36 @@ http.listen(3000, () => {
 
 let msgs = [];
 // Events
+
+/*
+EMIT KEY:
+msg-c: chat message
+msg-p: past messages
+msg-a: alert message
+*/
+
 io.on('connection', socket => {
-  //console.log('User connected');
   let usr;
   
   // Sending username
   socket.on('username', user => {
     usr = user;
     console.log(`User ${usr} connected`);
+    io.emit('msg-a', `${usr} connected`);
   });
 
   // Sending past messages
   // If msgs > 50 items, send only last 50
   if (msgs.length > 50) {
-    io.to(socket.id).emit('past messages', arr.slice(msgs.length - 50, msgs.length))
+    io.to(socket.id).emit('msg-p', arr.slice(msgs.length - 50, msgs.length));
   } 
-  else {io.to(socket.id).emit('past messages', msgs)};
+  else {io.to(socket.id).emit('msg-p', msgs)};
 
   // On Message
-  socket.on('chat message', msg => {
+  socket.on('msg-c', msg => {
     msgs.push([usr, msg]);
     //console.log(msgs);
-    io.emit('chat message', usr, msg);
+    io.emit('msg-c', usr, msg);
   });
 
   // On Disconnect
