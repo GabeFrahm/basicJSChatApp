@@ -4,11 +4,11 @@ const app = express();
 let http = require('http').createServer(app);
 let io = require('socket.io')(http);
 
-app.use(express.static(__dirname));
+app.use(express.static('client'));
 
 // Listen to the port
-http.listen(3000, () => {
-  console.log('Listening on 3000');
+http.listen(5000, () => {
+  console.log('Listening on 5000');
 });
 
 let msgs = [];
@@ -41,6 +41,7 @@ io.on('connection', socket => {
   // On Message
   socket.on('msg-c', msg => {
     msgs.push([usr, msg]);
+    console.log(msgs.length);
     //console.log(msgs);
     io.emit('msg-c', usr, msg);
   });
@@ -48,6 +49,6 @@ io.on('connection', socket => {
   // On Disconnect
   socket.on('disconnect', () => {
     console.log(`User ${usr} disconnected`);
-    //TODO: Send a message along the lines of '{usr} disconnected'
+    io.emit('msg-a', `${usr} disconnected`);
   });
 });
