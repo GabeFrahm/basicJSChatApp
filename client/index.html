@@ -28,6 +28,14 @@
         };
       });
 
+      document.getElementById("room button").onclick = function () {
+        let roomid = prompt('Enter the ID of a room you want to join, or the desired ID for a new room.');
+        if (roomid != null && roomid != ''){
+          $('#messages').empty()
+          socket.emit('join room', roomid);
+        };
+      };
+
       let user = prompt('Enter Username:');
       if (user == null || user == '') user = 'New User';
       socket.emit('username', user)
@@ -37,6 +45,7 @@
 <body class='bkg'>
 
   <h1>gabef | Chat</h1>
+  <button id='room button'>Join a room</button>
 
   <!-- TODO: Make Scrollable -->
   <div id='container-messages'> 
