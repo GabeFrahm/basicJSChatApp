@@ -24,7 +24,7 @@
       });
       socket.on('msg-p', msgs => {
         for (i = 0; i < msgs.length; i++) {
-          $('#messages').append($('<li>').text(msgs[i][0] + ': ' + msgs[i][1]));
+          $('#messages').append($('<li>').text(msgs[i][1] + ': ' + msgs[i][2]));
         };
       });
 
@@ -32,7 +32,7 @@
         let roomid = prompt('Enter the ID of a room you want to join, or the desired ID for a new room.');
         if (roomid != null && roomid != ''){
           $('#messages').empty()
-          socket.emit('join room', roomid);
+          socket.emit('room-j', roomid);
         };
       };
 

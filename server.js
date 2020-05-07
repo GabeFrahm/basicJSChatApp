@@ -12,6 +12,8 @@ http.listen(5000, () => {
   console.log('Listening on 5000');
 });
 
+// TODO: Change msgs list to a more sustainable database
+// TODO: Make msg list items into dictionaries for easier usability and more expansibility
 let msgs = [];
 
 // writing to msglog.json
@@ -36,16 +38,14 @@ EMIT KEY:
 msg-c: chat message
 msg-p: past messages
 msg-a: alert message
-join room: joining a room
+room-j: joining a room
 */
 
-// TODO: Make compatible with rooms
-// I'm very close but I can't quite figure out why this isn't working
-// TODO: Make msgs a dictionary for easier usability
+// Send past messages from a specific room
 getPast = (r) => {
   let templist = [];
   for (let i = 0; i < msgs.length; i++){
-    if (msgs[i[0]] == r) {
+    if (msgs[i][0] == r) {
       templist.push(msgs[i]);
     };
   };
@@ -66,7 +66,7 @@ io.on('connection', socket => {
   });
 
   // Joining Room
-  socket.on('join room', roomid => {
+  socket.on('room-j', roomid => {
     console.log(`Room request to ${roomid}`)
     socket.join(roomid);
     socket.leave(room);
