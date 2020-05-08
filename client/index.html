@@ -24,7 +24,7 @@
       });
       socket.on('msg-p', msgs => {
         for (i = 0; i < msgs.length; i++) {
-          $('#messages').append($('<li>').text(msgs[i][1] + ': ' + msgs[i][2]));
+          $('#messages').append($('<li>').text(msgs[i].user + ': ' + msgs[i].msg));
         };
       });
 

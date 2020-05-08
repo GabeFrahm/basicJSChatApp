@@ -1,7 +1,12 @@
 [
-  [
-    "default",
-    "Gabe",
-    "Yay!"
-  ]
+  {
+    "room": "default",
+    "user": "Gabe",
+    "msg": "Gabe typing"
+  },
+  {
+    "room": "default",
+    "user": "Gabe",
+    "msg": "Hello World"
+  }
 ]

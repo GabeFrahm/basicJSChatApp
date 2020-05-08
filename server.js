@@ -45,11 +45,20 @@ room-j: joining a room
 getPast = (r) => {
   let templist = [];
   for (let i = 0; i < msgs.length; i++){
-    if (msgs[i][0] == r) {
+    if (msgs[i].room == r) {
       templist.push(msgs[i]);
     };
   };
   return templist;
+};
+
+makeMsgItem = (room, user, msg) => {
+  let tempdict = {
+    room: room,
+    user: user,
+    msg: msg
+  };
+  return tempdict;
 }
 
 io.on('connection', socket => {
@@ -77,7 +86,7 @@ io.on('connection', socket => {
 
   // On Message
   socket.on('msg-c', msg => {
-    msgs.push([room, usr, msg]);
+    msgs.push(makeMsgItem(room, usr, msg));
     writeLog(msgs);
     //clearLog();
     io.to(room).emit('msg-c', usr, msg);
