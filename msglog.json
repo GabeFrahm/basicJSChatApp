@@ -1,12 +1,17 @@
 [
   {
     "room": "default",
-    "user": "Gabe",
-    "msg": "Gabe typing"
+    "user": "New User",
+    "msg": "Hello!"
   },
   {
     "room": "default",
     "user": "Gabe",
-    "msg": "Hello World"
+    "msg": "Hello Phone!"
+  },
+  {
+    "room": "csp",
+    "user": "Gabe",
+    "msg": "csjnije"
   }
 ]
