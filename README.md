@@ -1,2 +1,1 @@
-# noom
-WIP open source Zoom replacement
+# Basic JS Chat App
